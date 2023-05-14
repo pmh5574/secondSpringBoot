@@ -7,21 +7,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
+@Transactional
 class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;
     @Autowired MemoryMemberRepository memberRepository;
-
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
-
 
     @Test
     void join() {
@@ -60,13 +56,5 @@ class MemberServiceIntegrationTest {
 //        }
 
         // then
-    }
-
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }
